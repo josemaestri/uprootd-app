@@ -1,0 +1,9 @@
+{
+  "name": "uprootd-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/josemaestri/uprootd-app.git",
+  "author": "josemaestri <maestri.jose@gmail.com>",
+  "license": "MIT",
+  "dependencies": {}
+}
