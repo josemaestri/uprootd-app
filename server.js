@@ -3,16 +3,18 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3000;
+const passport = require("passport");
+const LocalStrategy = require('passport-local').Strategy;
 
 // requires the model with Passport-Local Mongoose plugged in
-// const Users = require('./models/usersSchema');
+const Users = require('./models/usersSchema');
 
 // use static authenticate method of model in LocalStrategy
-// passport.use(new LocalStrategy(Users.authenticate()));
+passport.use(new LocalStrategy(Users.authenticate()));
 
 // use static serialize and deserialize of model for passport session support
-// passport.serializeUser(Users.serializeUser());
-// passport.deserializeUser(Users.deserializeUser());
+passport.serializeUser(Users.serializeUser());
+passport.deserializeUser(Users.deserializeUser());
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
