@@ -12,21 +12,9 @@ var ReviewSchema = new Schema({
         ref: "Users"
     },
     location: String,
-    effects: {
+    attributes: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Effects"
-    },
-    medical: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Medical"
-    },
-    sideEffects: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "SideEffects"
-    },
-    flavors: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Flavors"
+        ref: "Attributes"
     },
     comments: String
 });

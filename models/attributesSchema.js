@@ -3,8 +3,10 @@ var Schema = mongoose.Schema;
 
 var AttributesSchema = new Schema ({
     name: String,
-    type: String
+    type: String,
 });
+
+var
 
 var Attributes = mongoose.model("Attributes", AttributesSchema);
 
