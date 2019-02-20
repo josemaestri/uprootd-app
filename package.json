@@ -5,5 +5,11 @@
   "repository": "https://github.com/josemaestri/uprootd-app.git",
   "author": "josemaestri <maestri.jose@gmail.com>",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.14",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1"
+  }
 }
