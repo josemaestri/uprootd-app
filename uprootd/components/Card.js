@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Image, Alert, Text, AppRegistry, TouchableHighlight, View } from 'react-native';
+import { StyleSheet, Image, Alert, Text, AppRegistry, TouchableOpacity, View } from 'react-native';
 // import { Svg } from 'expo';
 // const { Circle, Rect } = Svg;
 
@@ -35,13 +35,13 @@ export default class Card extends React.Component {
 
     return (
       <View>
-        <TouchableHighlight onPress={()=>Alert.alert('test')} underlayColor="white">
+        <TouchableOpacity onPress={()=>Alert.alert('test')} underlayColor="white">
           <View style={styles.input}>
             <Text>Borogu</Text>
             <Text>Vanuatu</Text>
             <Text>3.5</Text>
           </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
       </View>
     );  
   }

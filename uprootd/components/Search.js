@@ -10,9 +10,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textDecorationLine: 'underline'
   },
-  highlightBox:{
-    backgroundColor: '#fff'
-  },
   container: {
     flex: 1,
     backgroundColor: '#FFCA5A',

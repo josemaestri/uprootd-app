@@ -1,5 +1,7 @@
 import React from 'react';
 import { StyleSheet, Image, Text, TextInput, AppRegistry, Button, View } from 'react-native';
+import Card from './Card';
+
 // import { Svg } from 'expo';
 // const { Circle, Rect } = Svg;
 
@@ -39,12 +41,23 @@ export default class Root extends React.Component {
 
     return (
         <View style={styles.container}>
-          <Text>Back</Text>
-          <TextInput placeholder='Search' />
-          <Text>Close</Text>
-          <View>
-            <Image source={require('../assets/logo.png')} />
+          <Text style={styles.title}>Borogu</Text>
+          <Text>Vanuatu</Text>
+          <Text>Vanuatu Borogu Kava is the most popular variety of kava in Vanuatu, served in most of the nakamals on the islands.</Text>
+          <Text>Avg: 4.5</Text>
+          <Text>My Rating: 4.5</Text>
+          <View style={styles.highlightBox}>
+            <Text>Effects</Text> 
+            <Text>Medical Benefits</Text> 
+            <Text>Side Effects</Text>
           </View>
+          <View style={styles.highlightBox}>
+            <Text>Flavor Profile</Text> 
+          </View>
+          <Text style={styles.title}>Recent Logs</Text>
+            <Card rootId={1} />
+            <Card rootId={2} />
+            <Card rootId={3} />
         </View>
       );  
   }
