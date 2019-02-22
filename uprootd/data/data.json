@@ -1,0 +1,46 @@
+{
+  "roots":[
+    {
+      "id":1,
+      "root": "borogu",
+      "country": "vanuatu",
+      "description": "Vanuatu Borogu Kava is the most popular variety of kava in Vanuatu, served in most of the nakamals on the islands.",
+      "rating": 0
+    },
+      {
+      "id":2,
+      "root": "boronguru",
+      "country": "vanuatu",
+      "description": "Vanuatu Borongoru is the perfect kava to drink for stress relief or to reduce feelings of anxiousness",
+      "rating": 0
+    },
+    {
+      "id":3,
+      "root": "melo melo",
+      "country": "fiji",
+      "description": "Melo Melo kava powder brews a complex and slightly sweet kava drink that offers a relaxing, mellow mood.",
+      "rating": 0
+    },
+    {
+      "id":4,
+      "root": "loa waka",
+      "country": "fiji",
+      "description": "The all round, powerful mind and body relaxation effects of Fiji Loa Waka make it one of our most popular kavas.",
+      "rating": 0
+    },
+    {
+      "id":5,
+      "root": "vula waka",
+      "country": "fiji",
+      "description": "It is a uniquely strong Fiji kava that slows a busy mind, softens tense muscles, and provides a heavy body relaxation.",
+      "rating": 0
+    },
+    {
+      "id":6,
+      "root": "lawena",
+      "country": "fiji",
+      "description": "It is the crown of the roots. Lawena is white and has a distinct Fijian peppery taste. This kava is great for beginners as it is mellow and smooth.",
+      "rating": 0
+    }
+  ]
+}

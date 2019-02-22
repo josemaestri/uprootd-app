@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 5,
+    borderRadius: 5
   },
 });
 
@@ -37,9 +37,10 @@ export default class Card extends React.Component {
       <View>
         <TouchableOpacity onPress={()=>Alert.alert('test')} underlayColor="white">
           <View style={styles.input}>
-            <Text>Borogu</Text>
-            <Text>Vanuatu</Text>
-            <Text>3.5</Text>
+            <Text>{this.props.rootName}</Text>
+            <Text>{this.props.rootCountry}</Text>
+            {/*<Text>{this.props.rootDesc}</Text>*/}
+            <Text>{this.props.rootAvg}</Text>
           </View>
         </TouchableOpacity>
       </View>

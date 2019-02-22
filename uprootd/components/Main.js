@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, AppRegistry, Button, View } from 'react-native';
+import { StyleSheet, Text, TextInput, AppRegistry, Button, View, Flatlist } from 'react-native';
 import Card from './Card';
 // import { Svg } from 'expo';
 // const { Circle, Rect } = Svg;
@@ -12,7 +12,7 @@ import Card from './Card';
 const styles = StyleSheet.create({
   title: {
     fontSize: 20,
-    textDecorationLine: 'underline'
+    textDecorationLine: 'underline',
   },
   container: {
     flex: 1,
@@ -25,30 +25,40 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 5,
+    flex: 1
+  },
+  card:{
+    flex: 1,
+    marginBottom:'5rem'
   },
 });
 
 
 export default class Main extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      
-    };
-  }
+  
   render() {
+    var cards = this.props.data;
+    var cardsRendered = [];
+
+    for (var i = 0; i < cards.length; i++) {
+      var card = <Card style={styles.card} key={cards[i].id} rootName={cards[i].root} rootCountry={cards[i].country} rootDesc={cards[i].description} rootAvg={cards[i].rating} />
+      cardsRendered.push(card);
+    }
+
+    console.log(cardsRendered)
 
     return (
         <View style={styles.container}>
-          <Text style={styles.title}>Trending Roots</Text>
-          <Card rootId={1} />
-          <Card rootId={2} />
-          <Card rootId={3} />
+          <Text style={styles.title}>Current Available Roots</Text>
+          <View>{cardsRendered}</View>          
+          {/*<Card style={styles.card} rootId={1} />
+          <Card style={styles.card} rootId={2} />
+          <Card style={styles.card} rootId={3} />*/}
 
-          <Text style={styles.title}>Top Roots</Text>
-          <Card rootId={1} />
-          <Card rootId={2} />
-          <Card rootId={3} />
+          {/*<Text style={styles.title}>Top Roots</Text>
+          <Card style={styles.card} rootId={1} />
+          <Card style={styles.card} rootId={2} />
+          <Card style={styles.card} rootId={3} />*/}
           
           
         </View>
