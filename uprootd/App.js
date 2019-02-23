@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, Flatlist } from 'react-native';
-// import axios from 'axios';
+import { StyleSheet, SafeAreaView, ScrollView, ActivityIndicator, Dimensions, View } from 'react-native';
+import {NativeRouter, Switch, Route} from 'react-router-native';
 import data from './utils/api';
 
 import Splash from './components/Splash';
@@ -15,13 +15,21 @@ import Search from './components/Search';
 
 
 
+const {height} = Dimensions.get('window');
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFCA5A',
     alignItems: 'center',
     justifyContent: 'center',
+    padding:30,
   },
+  scrollContainer: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: '#FFCA5A'
+  }
 });
 
 class App extends React.Component {
@@ -30,9 +38,10 @@ class App extends React.Component {
     super(props);
 
     this.state={
-      isTest: true,
-      dbData:data.getRoots
-      // dbData: fetch('mongodb://127.0.0.1/kava')
+      isLoading: false,
+      dbData: '',
+      currentUser: false,
+      screenHeight: 0
     };
   }
 
@@ -42,7 +51,8 @@ class App extends React.Component {
       .then((resJSON) => {
         console.log(resJSON); 
         this.setState({
-          dbData: resJSON
+          dbData: resJSON,
+          isLoading: true
         });
       })
       .catch((err)=>{
@@ -50,38 +60,33 @@ class App extends React.Component {
       });
   }
 
+  onContentSizeChange = (w,h) => {
+    this.setState({screenHeight: h});
+  }
 
-  // loadData(){
-  //   const url = 'mongodb://127.0.0.1:27017/kava';
-  //   axios.get(url).then((data) => {
-  //     this.setState({
-  //       dbData: data.roots
-  //     })
-  //   });
-  // }
-
-
-
-  
 
   render() {
-    return (
-      <SafeAreaView style={{flex:1}}>
-        {/*<Splash />*/}
-        {/*<Login />*/}
-        {/*<Register />*/}
-        <Main data={this.state.dbData} />
-        {/*<Profile />*/}
-        {/*<Root />*/}
-        {/*<Log />*/}
-        {/*{<LogForm />}*/}
-        {/*<Search />*/}
-        {/*<Flatlist
-          data={this.state.dbData}
-          renderItem={({item}) => <Text>{item.root}</Text>}
-        />*/}
-      </SafeAreaView>
-    );  
+    if(!this.state.isLoading){
+      return(
+        <SafeAreaView style={styles.container}>
+          <ActivityIndicator size="large" color="#000" />
+        </SafeAreaView>
+      );
+    } else{
+
+      // const scrollEnabled = this.state.screenHeight > height;
+
+      return (
+       <NativeRouter>
+         <View style={styles.container}>
+           <Switch>
+             <Route exact path="/" component={Login} />
+             <Route exact path="/main" component={Main} />
+           </Switch>
+         </View>
+       </NativeRouter>
+      );
+    }  
   }
 }
 

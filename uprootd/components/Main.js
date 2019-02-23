@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, AppRegistry, Button, View, Flatlist } from 'react-native';
+import { StyleSheet, Text, TextInput, AppRegistry, Button, View, FlatList } from 'react-native';
 import Card from './Card';
 // import { Svg } from 'expo';
 // const { Circle, Rect } = Svg;
@@ -12,13 +12,14 @@ import Card from './Card';
 const styles = StyleSheet.create({
   title: {
     fontSize: 20,
+    marginBottom:15,
     textDecorationLine: 'underline',
   },
   container: {
     flex: 1,
     backgroundColor: '#FFCA5A',
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
   },
   input: {
     backgroundColor: '#fff',
@@ -28,9 +29,11 @@ const styles = StyleSheet.create({
     flex: 1
   },
   card:{
-    flex: 1,
-    marginBottom:'5rem'
+    flex: 1
   },
+  cardList:{
+    flexDirection: 'column',
+  }
 });
 
 
@@ -50,17 +53,11 @@ export default class Main extends React.Component {
     return (
         <View style={styles.container}>
           <Text style={styles.title}>Current Available Roots</Text>
-          <View>{cardsRendered}</View>          
-          {/*<Card style={styles.card} rootId={1} />
-          <Card style={styles.card} rootId={2} />
-          <Card style={styles.card} rootId={3} />*/}
-
-          {/*<Text style={styles.title}>Top Roots</Text>
-          <Card style={styles.card} rootId={1} />
-          <Card style={styles.card} rootId={2} />
-          <Card style={styles.card} rootId={3} />*/}
-          
-          
+          {/*<View style={styles.cardList}>{cardsRendered}</View>*/}
+          <FlatList
+            data={this.props.data}
+            renderItem={({item}) => <Card style={styles.card} key={item.id} rootName={item.root} rootCountry={item.country} rootDesc={item.description} rootAvg={item.rating} />}
+          />
         </View>
       );  
   }

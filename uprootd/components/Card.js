@@ -1,11 +1,17 @@
 import React from 'react';
 import { StyleSheet, Image, Alert, Text, AppRegistry, TouchableOpacity, View } from 'react-native';
+
 // import { Svg } from 'expo';
 // const { Circle, Rect } = Svg;
 
 // import Logo from '../assets/logo.png';
 
-
+const flags = {
+  Vanuatu: require('../assets/flag_Vanuatu.png'),
+  Fiji: require('../assets/flag_Fiji.png'),
+  Hawaii: require('../assets/flag_Hawaii.png'),
+  Tonga: require('../assets/flag_Tonga.png')
+}
 
 
 const styles = StyleSheet.create({
@@ -18,10 +24,13 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 5
-  },
-});
+    justifyContent: 'space-between',
+    borderRadius: 5,
+    flexDirection: 'row',
+    padding: 10,
+    marginBottom: 10
+  }
+})
 
 
 export default class Card extends React.Component {
@@ -32,15 +41,18 @@ export default class Card extends React.Component {
     };
   }
   render() {
-
+    // var country = this.props.rootCountry ? require(`../assets/flag_${this.props.rootCountry}.png`) : require('../assets/icon.png');
     return (
-      <View>
-        <TouchableOpacity onPress={()=>Alert.alert('test')} underlayColor="white">
+      <View style={{flex:1}}>
+        <TouchableOpacity onPress={()=>Alert.alert(this.props.rootDesc)} underlayColor="white">
           <View style={styles.input}>
-            <Text>{this.props.rootName}</Text>
-            <Text>{this.props.rootCountry}</Text>
-            {/*<Text>{this.props.rootDesc}</Text>*/}
-            <Text>{this.props.rootAvg}</Text>
+            <Image source={flags[this.props.rootCountry]} width={100} height={100} />
+            <View style={{flexDirection:'column'}}>
+              <Text>{this.props.rootName}</Text>
+              <Text>{this.props.rootCountry}</Text>
+              {/*<Text>{this.props.rootDesc}</Text>*/}
+              <Text>{this.props.rootAvg}</Text>
+            </View>
           </View>
         </TouchableOpacity>
       </View>
